@@ -8,7 +8,7 @@ bot.on('ready', () => {
 });
 
 bot.on('message', message => {
-    if (message.author.bot) return;
+    if (message.author.bot || !message.content.startsWith(config.PREFIX)) return;
 
     let [command, ...args] = message.content.slice(config.PREFIX.length).split(/ +/g);
 
